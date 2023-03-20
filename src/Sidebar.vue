@@ -24,18 +24,18 @@ const githubLink = computed(() =>
 </script>
 
 <template>
-  <div class="sidebar flex flex-col w-60">
+  <aside class="sidebar flex flex-col bg-slate-100">
     <div
-      class="flex flex-col items-center justify-center py-6 px-2 gap-1 text-slate-900 bg-slate-200"
+      class="flex flex-col justify-center py-8 px-6 text-slate-900 bg-slate-200"
     >
-      <h1 class="text-3xl font-black">
+      <h1 class="text-xl font-black">
         {{ header.title || "[header.title]" }}
       </h1>
-      <h2 class="text-lg font-bold text-center">
+      <h2 class="font-bold">
         {{ header.description || "[header.description]" }}
       </h2>
     </div>
-    <div class="flex flex-col px-4 gap-10 py-6 bg-slate-100 text-slate-700">
+    <div class="flex flex-col px-6 gap-10 py-8 bg-slate-100 text-slate-700">
       <div class="flex flex-col gap-2">
         <a :href="`mailto:${header.contact?.email || 'example@example.com'}`">
           <h4 class="flex flex-row items-center gap-1">
@@ -137,7 +137,7 @@ items:
         </div>
       </div>
     </div>
-  </div>
+  </aside>
 </template>
 
 <style scoped></style>

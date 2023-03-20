@@ -11,6 +11,8 @@ const toHTML = async () => {
     render() {
       return h(Resume, {
         header: markwhenStore.markwhen?.page.parsed?.header,
+        entries: markwhenStore.markwhen?.page.transformed,
+        dark: markwhenStore.app?.isDark,
       });
     },
   });
@@ -25,7 +27,7 @@ const toHTML = async () => {
   return `<html>
   <head>
     <title>Resume</title>
-    ${styles}
+    ${styles.join("")}
   </head>
   <body>
     <div id="app">${appHtml}</div>
@@ -48,14 +50,19 @@ const downloadToFile = async () => {
 <template>
   <div class="w-full h-full flex flex-col">
     <div class="flex flex-row gap-2 items-center justify-center py-1 border-b">
-      <button class="rounded py-px font-bold px-2 text-slate-100 bg-blue-800" @click="downloadToFile">
+      <button
+        class="rounded py-px font-bold px-2 text-slate-100 bg-blue-800"
+        @click="downloadToFile"
+      >
         Download HTML
       </button>
     </div>
-    <div class="overflow-scroll w-full h-full">
+    <div class="overflow-scroll w-full h-full bg-white">
       <Resume
         v-if="markwhenStore.markwhen"
         :header="markwhenStore.markwhen?.page.parsed?.header"
+        :entries="markwhenStore.markwhen?.page.transformed"
+        :dark="markwhenStore.app?.isDark"
       />
     </div>
   </div>

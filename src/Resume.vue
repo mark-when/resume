@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import Sidebar from "./Sidebar.vue";
-import Main from "./Main.vue"
-const props = defineProps<{ header: any, entries: any }>();
-
+import Entries from "./Entries.vue";
+import type { Node, NodeArray } from "@markwhen/parser/lib/Node";
+const props = defineProps<{ header: any; entries: Node<NodeArray>, dark: boolean }>();
 </script>
 
 <template>
-  <div class="mx-auto font-sans flex flex-row" style="width: 80rem">
+  <div
+    class="mx-auto font-sans flex flex-row resume"
+    :class="dark ? 'dark' : ''"
+  >
     <Sidebar :header="header" />
-    <Main></Main>
+    <Entries :entries="entries"></Entries>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.resume {
+  width: 60rem;
+  display: grid;
+  grid-template-columns: 16rem auto;
+}
+</style>

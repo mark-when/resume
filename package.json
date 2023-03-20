@@ -2,7 +2,7 @@
   "name": "vue-view-template",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite --port=5172",
+    "dev": "vite --port=5177",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port=5176",
     "build-only": "vite build",

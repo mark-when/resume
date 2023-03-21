@@ -24,6 +24,9 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
   const onJumpToPath = ref((path: EventPath) => {});
   const onJumpToRange = ref((range: DateRangeIso) => {});
 
+  // @ts-ignore
+  const hadInitialState = ref(typeof window !== 'undefined' && window.__markwhen_initial_state)
+
   const { postRequest } = useLpc({
     state: (s) => {
       app.value = produce(app.value, () => s.app);
@@ -85,6 +88,7 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
   return {
     app,
     markwhen,
+    hadInitialState,
 
     onJumpToPath,
     onJumpToRange,

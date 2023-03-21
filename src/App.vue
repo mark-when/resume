@@ -53,6 +53,7 @@ const downloadToFile = async () => {
 <template>
   <div class="w-full h-full flex flex-col" :class="dark ? 'dark' : ''">
     <div
+      v-if="!markwhenStore.hadInitialState"
       class="flex flex-row gap-2 items-center py-1 border-b dark:border-slate-800"
     >
       <div class="ml-auto flex flex-row gap-2 mx-2 font-sans">

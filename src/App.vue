@@ -9,6 +9,7 @@ const markwhenStore = useMarkwhenStore();
 const toHTML = async () => {
   const vueApp = defineComponent({
     render() {
+      // @ts-ignore
       return h(Resume, {
         header: markwhenStore.markwhen?.page.parsed?.header,
         entries: markwhenStore.markwhen?.page.transformed,

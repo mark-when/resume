@@ -5,7 +5,7 @@ import type { Event } from "@markwhen/parser/lib/Types";
 import { computed } from "vue";
 import Entry from "./Entry.vue";
 
-const props = defineProps<{ entries: Node<NodeArray> }>();
+const props = defineProps<{ entries: Node<NodeArray> | undefined }>();
 
 const asArray = computed(() => {
   const items: Node<Event>[] = [];
@@ -19,7 +19,9 @@ const asArray = computed(() => {
 </script>
 
 <template>
-  <main class="py-8 bg-slate-50 dark:bg-slate-800 px-12 w-full flex flex-col gap-6">
+  <main
+    class="py-8 bg-slate-50 dark:bg-slate-800 px-12 w-full flex flex-col gap-6"
+  >
     <Entry :entry="entry" v-for="entry in asArray"></Entry>
   </main>
 </template>

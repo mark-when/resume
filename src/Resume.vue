@@ -2,7 +2,7 @@
 import Sidebar from "./Sidebar.vue";
 import Entries from "./Entries.vue";
 import type { Node, NodeArray } from "@markwhen/parser/lib/Node";
-const props = defineProps<{ header: any; entries: Node<NodeArray>, dark: boolean }>();
+const props = defineProps<{ header: any; entries: Node<NodeArray> | undefined, dark: boolean }>();
 </script>
 
 <template>

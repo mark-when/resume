@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Event, Image } from "@markwhen/parser/lib/Types";
+import type { Block, Event, Image } from "@markwhen/parser/lib/Types";
 import type { Node } from "@markwhen/parser/lib/Node";
 import { toInnerHtml } from "@markwhen/parser/lib/utilities/html";
 import { computed } from "vue";
@@ -50,10 +50,20 @@ const items = computed(() =>
           <h2
             class="text-sm dark:text-slate-300"
             v-if="supplemental[0]"
-            v-html="toInnerHtml(supplemental[0].raw)"
+            v-html="toInnerHtml((supplemental[0] as Block).raw)"
           ></h2>
-          <h2 class="text-sm text-slate-500 dark:text-slate-400" v-if="location">·</h2>
-          <h2 class="text-sm text-slate-500 dark:text-slate-400" v-if="location">{{ location }}</h2>
+          <h2
+            class="text-sm text-slate-500 dark:text-slate-400"
+            v-if="location"
+          >
+            ·
+          </h2>
+          <h2
+            class="text-sm text-slate-500 dark:text-slate-400"
+            v-if="location"
+          >
+            {{ location }}
+          </h2>
         </div>
       </div>
     </div>
@@ -63,7 +73,7 @@ const items = computed(() =>
         <p
           class=""
           v-for="item in items"
-          v-html="toInnerHtml(item.raw)"
+          v-html="toInnerHtml((item as Block).raw)"
           style="font-size: 95%"
         ></p>
       </div>

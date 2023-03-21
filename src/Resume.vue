@@ -17,7 +17,6 @@ const props = defineProps<{ header: any; entries: Node<NodeArray>, dark: boolean
 
 <style scoped>
 .resume {
-  width: 60rem;
   display: grid;
   grid-template-columns: 16rem auto;
 }

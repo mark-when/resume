@@ -1,6 +1,6 @@
 {
   "name": "@markwhen/resume",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "vite --port=5177",
     "build": "run-p type-check build-only",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@markwhen/parser": "^0.5.2",
-    "@markwhen/view-client": "^1.0.10",
+    "@markwhen/view-client": "^1.1.2",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
     "immer": "^9.0.18",
@@ -32,5 +32,7 @@
     "vite-plugin-singlefile": "^0.13.3",
     "vue-tsc": "^1.0.12"
   },
-  "files": ["dist/index.html"]
+  "files": [
+    "dist/index.html"
+  ]
 }

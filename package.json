@@ -1,6 +1,6 @@
 {
   "name": "@markwhen/resume",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "scripts": {
     "dev": "vite --port=5177",
     "build": "run-p type-check build-only",
@@ -9,8 +9,8 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@markwhen/parser": "^0.5.2",
-    "@markwhen/view-client": "^1.1.2",
+    "@markwhen/parser": "^0.7.0",
+    "@markwhen/view-client": "^1.2.0",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
     "immer": "^9.0.18",

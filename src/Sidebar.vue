@@ -28,10 +28,10 @@ const githubLink = computed(() =>
     <div
       class="flex flex-col justify-center py-8 px-6 text-slate-900 bg-slate-200 dark:bg-slate-700 dark:text-slate-100"
     >
-      <h1 class="text-xl font-black text-center">
+      <h1 class="text-xl font-bold text-center">
         {{ header.title || "[header.title]" }}
       </h1>
-      <h2 class="font-bold text-center">
+      <h2 class="font-medium text-center">
         {{ header.description || "[header.description]" }}
       </h2>
     </div>

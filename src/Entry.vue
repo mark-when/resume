@@ -29,7 +29,6 @@ const items = computed(() =>
         :alt="image.altText"
         class="rounded h-8 w-8"
       />
-      <div class="h-8 w-8 flex-shrink-0" v-else></div>
       <div class="flex flex-col justify-center w-full">
         <div class="flex flex-row">
           <h1
@@ -68,7 +67,6 @@ const items = computed(() =>
       </div>
     </div>
     <div class="flex flex-row gap-3">
-      <div class="h-8 w-8 flex-shrink-0"></div>
       <div class="flex flex-col gap-1 dark:text-slate-300">
         <p
           class=""

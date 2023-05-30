@@ -7,7 +7,7 @@ const props = defineProps<{ header: any; entries: Node<NodeArray> | undefined, d
 
 <template>
   <div
-    class="mx-auto font-sans flex flex-row resume"
+    class="font-sans flex flex-row resume gap-4 mx-8"
     :class="dark ? 'dark' : ''"
   >
     <Sidebar :header="header" />
@@ -18,6 +18,6 @@ const props = defineProps<{ header: any; entries: Node<NodeArray> | undefined, d
 <style scoped>
 .resume {
   display: grid;
-  grid-template-columns: 16rem auto;
+  grid-template-columns: 14rem auto;
 }
 </style>

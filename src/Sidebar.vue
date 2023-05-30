@@ -24,18 +24,20 @@ const githubLink = computed(() =>
 </script>
 
 <template>
-  <aside class="sidebar flex flex-col bg-slate-100 dark:bg-slate-600">
+  <aside class="sidebar flex flex-col dark:bg-slate-600 mt-8">
     <div
-      class="flex flex-col justify-center py-8 px-6 text-slate-900 bg-slate-200 dark:bg-slate-700 dark:text-slate-100"
+      class="flex flex-col text-slate-900 dark:bg-slate-700 dark:text-slate-100"
     >
-      <h1 class="text-xl font-bold text-center">
+      <h1 class="text-xl font-bold">
         {{ header.title || "[header.title]" }}
       </h1>
-      <h2 class="font-medium text-center">
+      <h2 class="">
         {{ header.description || "[header.description]" }}
       </h2>
     </div>
-    <div class="flex flex-col px-6 gap-10 py-8 text-slate-700 dark:text-slate-200">
+    <div
+      class="flex flex-col gap-10 py-8 text-slate-700 dark:text-slate-200"
+    >
       <div class="flex flex-col gap-2">
         <a :href="`mailto:${header.contact?.email || 'example@example.com'}`">
           <h4 class="flex flex-row items-center gap-1">
@@ -122,7 +124,9 @@ items:
     </pre
       >
       <div class="flex flex-col gap-2" v-for="section in header.sidebar">
-        <h4 class="text-sm text-slate-500 dark:text-slate-400 uppercase">{{ section.name }}</h4>
+        <h4 class="text-sm text-slate-500 dark:text-slate-400 uppercase">
+          {{ section.name }}
+        </h4>
         <div class="" v-for="item in section.items">
           <template v-if="Array.isArray(item)">
             <h5 :class="item.length === 2 ? `font-medium` : ''">

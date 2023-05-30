@@ -20,7 +20,7 @@ const asArray = computed(() => {
 
 <template>
   <main
-    class="py-8 bg-slate-50 dark:bg-slate-800 px-12 w-full flex flex-col gap-6"
+    class="py-8 bg-white dark:bg-slate-800 w-full flex flex-col gap-6"
   >
     <Entry :entry="entry" v-for="entry in asArray"></Entry>
   </main>

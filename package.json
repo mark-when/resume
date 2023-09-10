@@ -9,8 +9,8 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@markwhen/parser": "^0.8.1",
-    "@markwhen/view-client": "^1.2.1",
+    "@markwhen/parser": "^0.10.7",
+    "@markwhen/view-client": "^1.4.2",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
     "immer": "^9.0.18",

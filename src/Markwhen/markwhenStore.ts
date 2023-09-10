@@ -11,7 +11,7 @@ import type {
   DateFormat,
   DateRangeIso,
   DateTimeGranularity,
-} from "@markwhen/parser/lib/Types";
+} from "@markwhen/parser";
 import {
   type EventPath,
   equivalentPaths,
@@ -24,13 +24,17 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
   const onJumpToPath = ref((path: EventPath) => {});
   const onJumpToRange = ref((range: DateRangeIso) => {});
 
-  // @ts-ignore
-  const hadInitialState = ref(typeof window !== 'undefined' && window.__markwhen_initial_state)
+  const hadInitialState = ref(
+    // @ts-ignore
+    typeof window !== "undefined" && window.__markwhen_initial_state
+  );
 
   const { postRequest } = useLpc({
-    state: (s) => {
-      app.value = produce(app.value, () => s.app);
-      markwhen.value = produce(markwhen.value, () => s.markwhen);
+    markwhenState(s) {
+      markwhen.value = produce(markwhen.value, () => s);
+    },
+    appState: (s) => {
+      app.value = produce(app.value, () => s);
     },
     jumpToPath: ({ path }) => {
       onJumpToPath.value?.(path);
@@ -82,7 +86,7 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
     postRequest("editEventDateRange", params);
   };
 
-  const requestStateUpdate = () => postRequest("state");
+  const requestStateUpdate = () => postRequest("markwhenState");
   requestStateUpdate();
 
   return {

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import produce from "immer";
+import { produce } from "immer";
 import {
   type AppState,
   type DisplayScale,
@@ -31,6 +31,7 @@ export const useMarkwhenStore = defineStore("markwhen", () => {
 
   const { postRequest } = useLpc({
     markwhenState(s) {
+      console.log(s)
       markwhen.value = produce(markwhen.value, () => s);
     },
     appState: (s) => {

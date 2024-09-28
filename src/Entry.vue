@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Block, Event, Image } from "@markwhen/parser";
-import type { Node } from "@markwhen/parser";
+import type { Eventy } from "@markwhen/parser";
 import { LINK_REGEX, AT_REGEX } from "@markwhen/parser";
 import { computed } from "vue";
 
@@ -37,16 +37,14 @@ function toInnerHtml(s: string): string {
     });
 }
 
-const props = defineProps<{ entry: Node<Event> }>();
+const props = defineProps<{ entry: Event }>();
 
-const supplemental = computed(
-  () => props.entry.value.eventDescription.supplemental
-);
+const supplemental = computed(() => props.entry.supplemental);
 const image = computed(
   () => supplemental.value.find((s) => s.type === "image") as Image | undefined
 );
 const location = computed(
-  () => props.entry.value.eventDescription.locations?.[0]
+  () => props.entry.properties.locations?.[0] ?? props.entry.properties.location
 );
 const items = computed(() =>
   supplemental.value.filter((s) => s.type === "listItem")
@@ -66,16 +64,16 @@ const items = computed(() =>
         <div class="flex flex-row">
           <h1
             class="font-semibold text-slate-800 dark:text-slate-200"
-            v-if="!entry.value.eventDescription.eventDescription"
+            v-if="!entry.firstLine.restTrimmed"
           >
             [title]
           </h1>
           <h1
             class="font-semibold text-slate-800 dark:text-slate-200"
-            v-html="toInnerHtml(entry.value.eventDescription.eventDescription)"
+            v-html="toInnerHtml(entry.firstLine.restTrimmed)"
           ></h1>
           <h2 class="ml-auto text-sm text-slate-500 dark:text-slate-400">
-            {{ entry.value.dateText }}
+            {{ entry.firstLine.datePart }}
           </h2>
         </div>
         <div class="flex flex-row gap-1">

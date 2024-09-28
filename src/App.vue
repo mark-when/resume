@@ -11,7 +11,7 @@ const toHTML = async () => {
     render() {
       // @ts-ignore
       return h(Resume, {
-        header: markwhenStore.markwhen?.parsed?.[0].header,
+        header: markwhenStore.markwhen.parsed.header,
         entries: markwhenStore.markwhen?.transformed,
         dark: markwhenStore.app?.isDark,
       });
@@ -80,7 +80,7 @@ const downloadToFile = async () => {
     <div class="overflow-scroll w-full h-full bg-white dark:bg-slate-900">
       <Resume
         v-if="markwhenStore.markwhen"
-        :header="markwhenStore.markwhen?.parsed?.[0].header"
+        :header="markwhenStore.markwhen?.parsed?.header"
         :entries="markwhenStore.markwhen?.transformed"
         :dark="!!dark"
       />

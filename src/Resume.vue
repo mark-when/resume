@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import Sidebar from "./Sidebar.vue";
 import Entries from "./Entries.vue";
-import type { Node, NodeArray } from "@markwhen/parser";
-const props = defineProps<{ header: any; entries: Node<NodeArray> | undefined, dark: boolean }>();
+import type { EventGroup } from "@markwhen/parser";
+const props = defineProps<{
+  header: any;
+  entries: EventGroup | undefined;
+  dark: boolean;
+}>();
 </script>
 
 <template>

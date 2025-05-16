@@ -2,7 +2,7 @@
   "name": "@markwhen/resume",
   "version": "1.1.0",
   "scripts": {
-    "dev": "vite --port=5177",
+    "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port=5176",
     "build-only": "vite build && cp _headers dist/_headers",

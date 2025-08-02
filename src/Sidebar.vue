@@ -28,16 +28,15 @@ const githubLink = computed(() =>
     <div
       class="flex flex-col text-slate-900 dark:bg-slate-700 dark:text-slate-100"
     >
-      <h1 class="text-xl font-bold">
+      <h1 class="text-4xl font-bold">
         {{ header.title || "[header.title]" }}
       </h1>
-      <h2 class="">
+      <h2 class="whitespace-pre">
         {{ header.description || "[header.description]" }}
       </h2>
     </div>
-    <div
-      class="flex flex-col gap-10 py-8 text-slate-700 dark:text-slate-200"
-    >
+      <div v-if="header.middle">{{ header.middle }}</div>
+    <div class="flex flex-col gap-10 py-8 text-slate-700 dark:text-slate-200">
       <div class="flex flex-col gap-2">
         <a :href="`mailto:${header.contact?.email || 'example@example.com'}`">
           <h4 class="flex flex-row items-center gap-1">
